@@ -11,3 +11,5 @@
 .gradle/8.4/checksums/sha1-checksums.bin
 .gradle/8.4/checksums/md5-checksums.bin
 .gradle/8.4/checksums/checksums.lock
+.gradle/
+local.properties
