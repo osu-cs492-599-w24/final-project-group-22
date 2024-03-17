@@ -1,24 +1,41 @@
 package com.example.foodrecipe.ui
 
-import FoodSearchAdapter
 import android.os.Bundle
 import android.util.Log
-import android.view.View
-import androidx.activity.ComponentActivity
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.navigateUp
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.example.foodrecipe.R
+import com.google.android.material.appbar.MaterialToolbar
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
-    //private val viewModel: FoodSearchViewModel by viewModels()
-    //private val adapter: FoodSearchAdapter = FoodSearchAdapter()
-    private lateinit var forecastListRV: RecyclerView
+    private lateinit var appBarConfig: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
+        val navHostFragment = supportFragmentManager.findFragmentById(
+            R.id.fragment_container
+        ) as NavHostFragment
+
+        val navController = navHostFragment.navController
+        appBarConfig = AppBarConfiguration(navController.graph)
+
+        val appBar: MaterialToolbar = findViewById(R.id.top_app_bar)
+        setSupportActionBar(appBar)
+        setupActionBarWithNavController(navController, appBarConfig)
+
+
+        val bottomNav: BottomNavigationView = findViewById(R.id.bottom_nav)
+        bottomNav.setupWithNavController(navController)
+
 
 
     }
@@ -47,5 +64,11 @@ class MainActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         Log.d("MainActivity", "Running onDestroy()")
+    }
+
+
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = findNavController(R.id.fragment_container)
+        return navController.navigateUp(appBarConfig) || super.onSupportNavigateUp()
     }
 }

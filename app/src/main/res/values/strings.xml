@@ -2,7 +2,7 @@
     <string name="app_name">Food Recipe</string>
     <string name="action_bookmark">Bookmark</string>
 
-
+    <string name="label_food_search">Food Search</string>
 
 
     <!-- Below are strings related to preferences/settings -->

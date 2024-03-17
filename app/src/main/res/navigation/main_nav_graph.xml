@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/food_search">
+
+    <fragment
+        android:id="@+id/food_search"
+        android:name="com.example.foodrecipe.ui.FoodSearchFragment"
+        android:label="@string/label_food_search" />
+
+    <fragment
+        android:id="@+id/food_search2"
+        android:name="com.example.foodrecipe.ui.FoodSearchFragment"
+        android:label="@string/label_food_search" />
+
+    <fragment
+        android:id="@+id/food_search3"
+        android:name="com.example.foodrecipe.ui.FoodSearchFragment"
+        android:label="@string/label_food_search" />
+
+
+</navigation>

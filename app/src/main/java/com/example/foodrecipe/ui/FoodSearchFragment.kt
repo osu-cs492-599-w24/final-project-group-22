@@ -39,7 +39,7 @@ class FoodSearchFragment : Fragment(R.layout.fragment_recipe_search) {
         searchBtn.setOnClickListener {
             val query = searchBoxET.text.toString()
             if (!TextUtils.isEmpty(query)) {
-                viewModel.loadSearchResults(query, "7eeb9dec6924484dbd18320c7316ee6c")
+                viewModel.loadSearchResults(query, "e41f5f1e8cb74aa781657879e31d8ea6")
                 forecastListRV.scrollToPosition(0)
             }
         }
