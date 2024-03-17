@@ -6,32 +6,19 @@ import android.util.Log
 import android.view.View
 import androidx.activity.ComponentActivity
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.foodrecipe.R
 
-class MainActivity : ComponentActivity() {
-    private val viewModel: FoodSearchViewModel by viewModels()
-    private val adapter: FoodSearchAdapter = FoodSearchAdapter()
+class MainActivity : AppCompatActivity() {
+    //private val viewModel: FoodSearchViewModel by viewModels()
+    //private val adapter: FoodSearchAdapter = FoodSearchAdapter()
     private lateinit var forecastListRV: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        forecastListRV = findViewById<RecyclerView>(R.id.rv_search_results)
-        forecastListRV.layoutManager = LinearLayoutManager(this)
-        forecastListRV.setHasFixedSize(true)
-
-        forecastListRV.adapter = adapter
-
-        viewModel.searchResults.observe(this) {
-                searchResults -> adapter.updateMealList(searchResults)
-        }
-        forecastListRV.visibility = View.VISIBLE
-
-        viewModel.loadSearchResults("pasta, 7eeb9dec6924484dbd18320c7316ee6c")
-
 
 
     }

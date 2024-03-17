@@ -4,5 +4,5 @@
 Group member:
 Benny Xu</br>
 Can Yang</br>
-Kierra Yound</br>
+Kierra Young</br>
 Steven Akiyama</br>
