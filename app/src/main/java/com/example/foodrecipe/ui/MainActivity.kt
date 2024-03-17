@@ -30,9 +30,7 @@ class MainActivity : ComponentActivity() {
         }
         forecastListRV.visibility = View.VISIBLE
 
-        viewModel.loadSearchResults("pasta, 7eeb9dec6924484dbd18320c7316ee6c")
-
-
+        viewModel.loadSearchResults("pasta", "7eeb9dec6924484dbd18320c7316ee6c")
 
     }
 
