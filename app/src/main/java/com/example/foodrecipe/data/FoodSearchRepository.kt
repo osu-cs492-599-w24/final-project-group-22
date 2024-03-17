@@ -7,10 +7,10 @@ import kotlinx.coroutines.withContext
 class FoodSearchRepository (private val service: SpoonacularService,
                             private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
 ) {
-    suspend fun loadRepositoriesSearch(query: String): Result<List<Meal>> =
+    suspend fun loadRepositoriesSearch(query: String, apiKey: String): Result<List<Meal>> =
         withContext(ioDispatcher) {
             try {
-                val response = service.searchRecipes(query)
+                val response = service.searchRecipes(query, apiKey)
                 if (response.isSuccessful) {
                     Result.success(response.body()?.results?: listOf())
                 } else {

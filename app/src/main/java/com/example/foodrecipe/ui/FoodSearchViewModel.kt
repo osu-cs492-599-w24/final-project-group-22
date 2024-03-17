@@ -14,9 +14,9 @@ class FoodSearchViewModel: ViewModel() {
     private val _searchResults = MutableLiveData<List<Meal>?>(null)
     val searchResults: LiveData<List<Meal>?> = _searchResults
 
-    fun loadSearchResults(query: String) {
+    fun loadSearchResults(query: String, apiKey: String) {
         viewModelScope.launch {
-            val result = searchs.loadRepositoriesSearch(query)
+            val result = searchs.loadRepositoriesSearch(query, apiKey)
             _searchResults.value = result.getOrNull()
         }
     }

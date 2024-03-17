@@ -14,7 +14,7 @@ interface SpoonacularService {
     ): Response<FoodSearchResult>
 
     companion object {
-        private const val BASE_URL = "api.spoonacular.com/recipes/"
+        private const val BASE_URL = "https://api.spoonacular.com/recipes/"
 
         fun create(): SpoonacularService {
             return Retrofit.Builder()
