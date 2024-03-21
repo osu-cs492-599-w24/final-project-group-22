@@ -10,7 +10,7 @@
         android:title="@string/label_food_search"
         android:icon="@drawable/ic_starred"/>
     <item
-        android:id="@+id/food_search3"
+        android:id="@+id/recipe_detail_fragment"
         android:title="@string/label_food_search"
         android:icon="@drawable/ic_starred"/>
 
