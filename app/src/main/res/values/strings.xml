@@ -3,6 +3,7 @@
     <string name="action_bookmark">Bookmark</string>
 
     <string name="label_food_search">Recipe Search</string>
+    <string name="label_saved_recipes">Saved Recipes</string>
 
 
     <!-- Below are strings related to preferences/settings -->

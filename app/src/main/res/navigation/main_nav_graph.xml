@@ -30,6 +30,6 @@
     <fragment
         android:id="@+id/saved_recipes"
         android:name="com.example.foodrecipe.ui.SavedRecipesFragment"
-        android:label="Saved Recipes" />
+        android:label="@string/label_saved_recipes" />
 
 </navigation>
