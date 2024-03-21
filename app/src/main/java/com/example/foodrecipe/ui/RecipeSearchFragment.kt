@@ -14,29 +14,29 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.foodrecipe.data.FoodRecipe
 
-class FoodSearchFragment : Fragment(R.layout.fragment_recipe_search) {
+class RecipeSearchFragment : Fragment(R.layout.fragment_recipe_search) {
     private val viewModel: FoodSearchViewModel by viewModels()
 
-//    private val adapter = FoodSearchAdapter(::onFoodSearchResultClick)
+    //    private val adapter = FoodSearchAdapter(::onFoodSearchResultClick)
     private val adapter: FoodSearchAdapter = FoodSearchAdapter()
-    private lateinit var forecastListRV: RecyclerView
+    private lateinit var foodSearchRV: RecyclerView
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         val searchBtn: Button = view.findViewById(R.id.btn_search)
         val searchBoxET: EditText = view.findViewById(R.id.et_search_box)
-        forecastListRV = view.findViewById<RecyclerView>(R.id.rv_search_results)
+        foodSearchRV = view.findViewById<RecyclerView>(R.id.rv_search_results)
 
-        forecastListRV.layoutManager = LinearLayoutManager(requireContext())
-        forecastListRV.setHasFixedSize(true)
+        foodSearchRV.layoutManager = LinearLayoutManager(requireContext())
+        foodSearchRV.setHasFixedSize(true)
 
-        forecastListRV.adapter = adapter
+        foodSearchRV.adapter = adapter
 
         viewModel.searchResults.observe(viewLifecycleOwner) {
                 searchResults -> adapter.updateMealList(searchResults)
         }
-        forecastListRV.visibility = View.VISIBLE
+        foodSearchRV.visibility = View.VISIBLE
 
 //        viewModel.loadSearchResults("pasta", "7eeb9dec6924484dbd18320c7316ee6c")
 
@@ -44,15 +44,15 @@ class FoodSearchFragment : Fragment(R.layout.fragment_recipe_search) {
             val query = searchBoxET.text.toString()
             if (!TextUtils.isEmpty(query)) {
                 viewModel.loadSearchResults(query, "e41f5f1e8cb74aa781657879e31d8ea6")
-                forecastListRV.scrollToPosition(0)
+                foodSearchRV.scrollToPosition(0)
             }
         }
     }
 
 
-//    private fun onFoodSearchResultClick(recipe: FoodRecipe) {
-//        val directions = FoodSearchFragmentDirections.navigateToRecipeDetail()
-//        findNavController().navigate(directions)
-//    }
+    private fun onFoodSearchResultClick(recipe: FoodRecipe) {
+        val directions = FoodSearchFragmentDirections.navigateToRecipeDetail()
+        findNavController().navigate(directions)
+    }
 
 }
