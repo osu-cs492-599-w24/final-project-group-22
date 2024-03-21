@@ -13,6 +13,10 @@
         android:id="@+id/food_search3"
         android:title="@string/label_food_search"
         android:icon="@drawable/ic_starred"/>
+    <item
+        android:id="@+id/saved_recipes"
+        android:title="Saved Recipes"
+        android:icon="@drawable/ic_starred"/>
 
 
 

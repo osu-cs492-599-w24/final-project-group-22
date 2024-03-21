@@ -20,5 +20,9 @@
         android:name="com.example.foodrecipe.ui.FoodSearchFragment"
         android:label="@string/label_food_search" />
 
+    <fragment
+        android:id="@+id/saved_recipes"
+        android:name="com.example.foodrecipe.ui.SavedRecipesFragment"
+        android:label="Saved Recipes" />
 
 </navigation>
