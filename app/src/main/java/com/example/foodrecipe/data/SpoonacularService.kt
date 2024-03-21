@@ -13,6 +13,12 @@ interface SpoonacularService {
         @Query("apiKey") aipKey: String = "7eeb9dec6924484dbd18320c7316ee6c"
     ): Response<FoodSearchResult>
 
+    @GET("654959/information")
+    suspend fun getRecipe(
+        @Query("apiKey") aipKey: String = "7eeb9dec6924484dbd18320c7316ee6c"
+    ): Response<FoodRecipe>
+
+
     companion object {
         private const val BASE_URL = "https://api.spoonacular.com/recipes/"
 
