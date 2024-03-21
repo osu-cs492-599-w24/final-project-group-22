@@ -4,10 +4,12 @@ class SavedRecipesRepository(
     private val dao: RecipeDao
 ) {
 
-    suspend fun insertRecipe(meal: Meal) = dao.insert(meal)
+    suspend fun insertRecipe(recipesEntity: RecipesEntity) = dao.insert(recipesEntity)
 
-    suspend fun deleteRecipe(meal: Meal) = dao.delete(meal)
+    suspend fun deleteRecipe(recipesEntity: RecipesEntity) = dao.delete(recipesEntity)
 
     fun getAllRecipes() = dao.getAllRecipes()
+
+    fun getRecipeById(id: Int) = dao.getRecipeById(id)
 
 }

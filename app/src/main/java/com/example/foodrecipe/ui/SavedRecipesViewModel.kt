@@ -2,10 +2,13 @@ package com.example.foodrecipe.ui
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
+import androidx.room.util.query
 import com.example.foodrecipe.data.AppDatabase
 import com.example.foodrecipe.data.Meal
+import com.example.foodrecipe.data.RecipesEntity
 import com.example.foodrecipe.data.SavedRecipesRepository
 import kotlinx.coroutines.launch
 
@@ -18,16 +21,30 @@ class SavedRecipesViewModel(application: Application) : AndroidViewModel(applica
     val savedRecipes = repository.getAllRecipes().asLiveData()
 
 
-    fun addSavedRecipe(meal: Meal) {
+    fun addSavedRecipe(recipesEntity: RecipesEntity) {
         viewModelScope.launch {
-            repository.insertRecipe(meal)
+            repository.insertRecipe(recipesEntity)
         }
     }
 
-    fun removeSavedRecipe(meal: Meal) {
+    fun removeSavedRecipe(recipesEntity: RecipesEntity) {
         viewModelScope.launch {
-            repository.deleteRecipe(meal)
+            repository.deleteRecipe(recipesEntity)
         }
     }
+
+
+    fun removeSavedRecipeById(id: Int, lifecycleOwner: LifecycleOwner) {
+        queryRecipeById(id).observe(lifecycleOwner) {
+            recipe ->
+                recipe?.let {
+                    removeSavedRecipe(recipe)
+                }
+        }
+    }
+
+    fun queryRecipeById(id: Int) =
+            repository.getRecipeById(id).asLiveData()
+
 
 }
