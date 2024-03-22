@@ -10,8 +10,8 @@
         android:title="@string/label_saved_recipes"
         android:icon="@drawable/ic_starred"/>
     <item
-        android:id="@+id/recipe_detail_fragment"
-        android:title="@string/label_food_search"
+        android:id="@+id/calorie_analysis"
+        android:title="@string/label_calorie_analysis"
         android:icon="@drawable/ic_starred"/>
 
 

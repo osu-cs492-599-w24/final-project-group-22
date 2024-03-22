@@ -4,6 +4,7 @@
 
     <string name="label_food_search">Recipe Search</string>
     <string name="label_saved_recipes">Saved Recipes</string>
+    <string name="label_calorie_analysis">Calorie Counter</string>
 
 
     <!-- Below are strings related to preferences/settings -->
