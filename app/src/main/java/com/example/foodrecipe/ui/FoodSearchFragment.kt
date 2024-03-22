@@ -15,9 +15,12 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.foodrecipe.data.FoodRecipe
 import com.example.foodrecipe.data.Meal
+import com.example.foodrecipe.data.RecipesEntity
+import com.google.android.material.snackbar.Snackbar
 
 class FoodSearchFragment : Fragment(R.layout.fragment_recipe_search) {
     private val viewModel: FoodSearchViewModel by viewModels()
+    private val recipeViewModel: SavedRecipesViewModel by viewModels()
 
 //    private val adapter = FoodSearchAdapter(::onFoodSearchResultClick)
     private val adapter: FoodSearchAdapter = FoodSearchAdapter()
@@ -58,12 +61,23 @@ class FoodSearchFragment : Fragment(R.layout.fragment_recipe_search) {
         }
         forecastListRV.visibility = View.VISIBLE
 
-//        viewModel.loadSearchResults("pasta", "7eeb9dec6924484dbd18320c7316ee6c")
+        // Setting long click listener to add item to database
+        adapter.onItemLongClick = {
+            recipeViewModel.addSavedRecipe(
+                RecipesEntity(it.id, it.title, it.image)
+            )
+            Snackbar.make(
+                view,
+                it.title + " added to saved.",
+                Snackbar.LENGTH_LONG
+            ).show()
+        }
+
 
         searchBtn.setOnClickListener {
             val query = searchBoxET.text.toString()
             if (!TextUtils.isEmpty(query)) {
-                viewModel.loadSearchResults(query, "e41f5f1e8cb74aa781657879e31d8ea6")
+                viewModel.loadSearchResults(query, getString(R.string.spoon_api_key))
                 forecastListRV.scrollToPosition(0)
             }
         }

@@ -3,6 +3,7 @@
     <string name="action_bookmark">Bookmark</string>
 
     <string name="label_food_search">Recipe Search</string>
+    <string name="label_saved_recipes">Saved Recipes</string>
     <string name="label_calorie_analysis">Calorie Counter</string>
     <string name="label_favorite_recipe">Favorite Recipes</string>
     <string name="label_specific_recipe">Opened Recipe</string>
@@ -47,4 +48,7 @@
     <string name="pref_language_val_javascript" translatable="false">javascript</string>
     <string name="pref_language_val_rust" translatable="false">rust</string>
     <string name="pref_language_val_python" translatable="false">python</string>
+    <string name="spoon_api_key">dd1e3bda18694b55a5fdcba6e90d094b</string>
+    <string name="ingredient_list_label">Ingredients:</string>
+    <string name="recipe_instructions_label">Instructions:</string>
 </resources>
