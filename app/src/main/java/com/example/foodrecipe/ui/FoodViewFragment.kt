@@ -19,6 +19,7 @@ import java.io.InputStream
 import java.lang.Exception
 import java.net.URL
 import android.webkit.WebView
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.foodrecipe.data.Meal
@@ -63,7 +64,7 @@ class FoodViewFragment : Fragment(R.layout.fragment_recipe_detail) {
         recipeSourceURL = view.findViewById(R.id.wv_source_url)
 
         recipeIngredientList = view.findViewById(R.id.rv_ingredients)
-        recipeIngredientList.layoutManager = LinearLayoutManager(requireContext())
+        recipeIngredientList.layoutManager = GridLayoutManager(requireContext(), 2)
 
         viewModel.loadRecipeSearchResults(recipeID.toString(), getString(R.string.spoon_api_key))
 
