@@ -3,6 +3,7 @@ package com.example.foodrecipe.ui
 import FoodSearchAdapter
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -13,6 +14,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.foodrecipe.data.FoodRecipe
+import com.example.foodrecipe.data.Meal
 
 class FoodSearchFragment : Fragment(R.layout.fragment_recipe_search) {
     private val viewModel: FoodSearchViewModel by viewModels()
@@ -33,8 +35,6 @@ class FoodSearchFragment : Fragment(R.layout.fragment_recipe_search) {
 
         forecastListRV.adapter = adapter
 
-<<<<<<< Updated upstream
-=======
         adapter.setOnItemClickListener(object: FoodSearchAdapter.onItemClickListener{
             override fun onItemClick(position: Int, activeMeal: Meal) {
 
@@ -53,7 +53,6 @@ class FoodSearchFragment : Fragment(R.layout.fragment_recipe_search) {
 
         })
 
->>>>>>> Stashed changes
         viewModel.searchResults.observe(viewLifecycleOwner) {
                 searchResults -> adapter.updateMealList(searchResults)
         }

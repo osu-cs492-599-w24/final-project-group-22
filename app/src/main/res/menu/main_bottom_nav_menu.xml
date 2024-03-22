@@ -10,18 +10,12 @@
         android:title="@string/label_favorite_recipe"
         android:icon="@drawable/ic_starred"/>
     <item
-<<<<<<< Updated upstream
-        android:id="@+id/food_search2"
-        android:title="@string/label_food_search"
-        android:icon="@drawable/ic_starred"/>
+        android:id="@+id/specific_recipe_view"
+        android:title="@string/label_specific_recipe"
+        android:icon="@drawable/ic_action_bookmard"/>
     <item
         android:id="@+id/calorie_analysis"
         android:title="@string/label_calorie_analysis"
         android:icon="@drawable/ic_starred"/>
-=======
-        android:id="@+id/specific_recipe_view"
-        android:title="@string/label_specific_recipe"
-        android:icon="@drawable/ic_action_bookmard"/>
->>>>>>> Stashed changes
 
 </menu>
