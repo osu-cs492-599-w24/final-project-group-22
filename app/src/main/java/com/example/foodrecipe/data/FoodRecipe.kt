@@ -11,5 +11,7 @@ data class FoodRecipe(
     val title: String,
     val readyInMinutes: Int,
     val servings: Int,
-    val instructions: String
+    val instructions: String,
+    val creditsText: String,
+    val sourceUrl: String
 ) : Serializable
