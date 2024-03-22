@@ -5,22 +5,22 @@
     android:id="@+id/main_nav_graph"
     app:startDestination="@id/food_search">
 
-    <action
-        android:id="@+id/navigate_to_recipe_detail"
-        app:destination="@id/recipe_detail_fragment" />
 
     <fragment
         android:id="@+id/food_search"
         android:name="com.example.foodrecipe.ui.FoodSearchFragment"
         android:label="@string/label_food_search" />
+        <action
+            android:id="@+id/navigate_to_recipe_detail"
+            app:destination="@id/recipe_detail_fragment" />
 
     <fragment
         android:id="@+id/recipe_detail_fragment"
-        android:name="com.example.foodrecipe.ui.FoodSearchFragment"
+        android:name="com.example.foodrecipe.ui.RecipeSearchFragment"
         android:label="Recipe lists"/>
         <argument
             android:name="recipe"
-            app:argType="com.example.foodrecipe.data.FoodRecipe"/>
+            app:argType="com.example.foodrecipe.data.Meal"/>
 
     <fragment
         android:id="@+id/food_search2"

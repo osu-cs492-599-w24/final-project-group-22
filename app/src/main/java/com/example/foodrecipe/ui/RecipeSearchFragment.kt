@@ -1,58 +1,37 @@
 package com.example.foodrecipe.ui
 
-import FoodSearchAdapter
 import android.os.Bundle
-import android.text.TextUtils
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import android.widget.TextView
 import com.example.foodrecipe.R
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
-import com.example.foodrecipe.data.FoodRecipe
+import androidx.navigation.fragment.navArgs
 
-class RecipeSearchFragment : Fragment(R.layout.fragment_recipe_search) {
-    private val viewModel: FoodSearchViewModel by viewModels()
 
-    //    private val adapter = FoodSearchAdapter(::onFoodSearchResultClick)
-    private val adapter: FoodSearchAdapter = FoodSearchAdapter()
-    private lateinit var foodSearchRV: RecyclerView
+class RecipeSearchFragment : Fragment(R.layout.fragment_recipe_detail) {
+    private val args: RecipeSearchFragmentArgs by navArgs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val searchBtn: Button = view.findViewById(R.id.btn_search)
-        val searchBoxET: EditText = view.findViewById(R.id.et_search_box)
-        foodSearchRV = view.findViewById<RecyclerView>(R.id.rv_search_results)
-
-        foodSearchRV.layoutManager = LinearLayoutManager(requireContext())
-        foodSearchRV.setHasFixedSize(true)
-
-        foodSearchRV.adapter = adapter
-
-        viewModel.searchResults.observe(viewLifecycleOwner) {
-                searchResults -> adapter.updateMealList(searchResults)
-        }
-        foodSearchRV.visibility = View.VISIBLE
-
-//        viewModel.loadSearchResults("pasta", "7eeb9dec6924484dbd18320c7316ee6c")
-
-        searchBtn.setOnClickListener {
-            val query = searchBoxET.text.toString()
-            if (!TextUtils.isEmpty(query)) {
-                viewModel.loadSearchResults(query, "e41f5f1e8cb74aa781657879e31d8ea6")
-                foodSearchRV.scrollToPosition(0)
-            }
-        }
-    }
+        val imgTV: TextView = view.findViewById(R.id.iv_recipe_image)
+        val nameTV: TextView = view.findViewById(R.id.tv_recipe_name)
+        val descriptionTV: TextView = view.findViewById(R.id.tv_recipe_description)
+        val originalTV: TextView = view.findViewById(R.id.tv_recipe_original)
+        val consistencyTV: TextView = view.findViewById(R.id.tv_recipe_consistency)
+        val aisleTV: TextView = view.findViewById(R.id.tv_recipe_aisle)
 
 
-    private fun onFoodSearchResultClick(recipe: FoodRecipe) {
-        val directions = FoodSearchFragmentDirections.navigateToRecipeDetail()
-        findNavController().navigate(directions)
+        nameTV.text = args.recipe.name
+        descriptionTV.text = args.recipe.description
+        originalTV.text = args.recipe.original
+        consistencyTV.text = args.recipe.consistency
+        aisleTV.text = args.recipe.aisle
+
+
+
+
+
     }
 
 }

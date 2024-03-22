@@ -13,12 +13,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.foodrecipe.data.FoodRecipe
+import com.example.foodrecipe.data.Meal
 
 class FoodSearchFragment : Fragment(R.layout.fragment_recipe_search) {
     private val viewModel: FoodSearchViewModel by viewModels()
-
-//    private val adapter = FoodSearchAdapter(::onFoodSearchResultClick)
-    private val adapter: FoodSearchAdapter = FoodSearchAdapter()
+    private val adapter: FoodSearchAdapter = FoodSearchAdapter(::onFoodSearchResultClick)
     private lateinit var forecastListRV: RecyclerView
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -50,9 +49,9 @@ class FoodSearchFragment : Fragment(R.layout.fragment_recipe_search) {
     }
 
 
-//    private fun onFoodSearchResultClick(recipe: FoodRecipe) {
-//        val directions = FoodSearchFragmentDirections.navigateToRecipeDetail()
-//        findNavController().navigate(directions)
-//    }
+    private fun onFoodSearchResultClick(meal: Meal) {
+        val directions = FoodSearchFragmentDirections.navigateToRecipeDetail()
+        findNavController().navigate(directions)
+    }
 
 }

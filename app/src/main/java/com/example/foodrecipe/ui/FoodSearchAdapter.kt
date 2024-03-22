@@ -17,13 +17,16 @@ import java.io.InputStream
 import java.lang.Exception
 import java.net.URL
 
-class FoodSearchAdapter : RecyclerView.Adapter<FoodSearchAdapter.ViewHolder>() {
+class FoodSearchAdapter(
+    private val onFoodSearchResultClick: (Meal) -> Unit
+) : RecyclerView.Adapter<FoodSearchAdapter.ViewHolder>() {
     private var meals: List<Meal> = listOf()
 
     fun updateMealList(newRepoList: List<Meal>?) {
-        notifyItemRangeRemoved(0, meals.size)
-        meals = newRepoList ?: listOf()
-        notifyItemRangeInserted(0, meals.size)
+        newRepoList?.let {
+            meals = it
+            notifyDataSetChanged()
+        }
     }
 
     override fun getItemCount() = meals.size
@@ -31,18 +34,30 @@ class FoodSearchAdapter : RecyclerView.Adapter<FoodSearchAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.food_search_list, parent, false)
-        return ViewHolder(view)
+        return ViewHolder(view, onFoodSearchResultClick)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(meals[position])
     }
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class ViewHolder(
+        view: View,
+        onClick: (Meal) -> Unit
+    ) : RecyclerView.ViewHolder(view) {
         private val titleTV: TextView = view.findViewById(R.id.tv_title)
         private val imgIV: ImageView = view.findViewById(R.id.iv_image)
 
+        init {
+            view.setOnClickListener {
+                currentMeal?.let { onClick(it) }
+            }
+        }
+
+        private var currentMeal: Meal? = null
+
         fun bind(meal: Meal) {
+            currentMeal = meal
             titleTV.text = meal.title
             loadImageFromInternet(meal.image)
         }
