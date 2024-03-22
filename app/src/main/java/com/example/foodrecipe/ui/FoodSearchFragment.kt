@@ -3,6 +3,7 @@ package com.example.foodrecipe.ui
 import FoodSearchAdapter
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -13,6 +14,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.foodrecipe.data.FoodRecipe
+import com.example.foodrecipe.data.Meal
 
 class FoodSearchFragment : Fragment(R.layout.fragment_recipe_search) {
     private val viewModel: FoodSearchViewModel by viewModels()
@@ -32,6 +34,24 @@ class FoodSearchFragment : Fragment(R.layout.fragment_recipe_search) {
         forecastListRV.setHasFixedSize(true)
 
         forecastListRV.adapter = adapter
+
+        adapter.setOnItemClickListener(object: FoodSearchAdapter.onItemClickListener{
+            override fun onItemClick(position: Int, activeMeal: Meal) {
+
+
+                Log.d("FoodSearchFragment", "Clicked on item $position, contains meal:\nID: ${activeMeal.id}\nName: ${activeMeal.title}")
+
+                val bundle = Bundle()
+                bundle.putParcelable("selectedMeal", activeMeal)
+
+                findNavController().navigate(
+                    R.id.specific_recipe_view,
+                    bundle
+                )
+
+            }
+
+        })
 
         viewModel.searchResults.observe(viewLifecycleOwner) {
                 searchResults -> adapter.updateMealList(searchResults)
