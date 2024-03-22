@@ -6,6 +6,10 @@ import java.io.Serializable
 @JsonClass(generateAdapter = true)
 data class FoodRecipe(
     val extendedIngredients: List<ExtendIngredient>,
-    val description: String,
-    val image: String
+    val summary: String,
+    val image: String,
+    val title: String,
+    val readyInMinutes: Int,
+    val servings: Int,
+    val instructions: String
 ) : Serializable

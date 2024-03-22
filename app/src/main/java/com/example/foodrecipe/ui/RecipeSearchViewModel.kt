@@ -1,5 +1,6 @@
 package com.example.foodrecipe.ui
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -16,10 +17,12 @@ class RecipeSearchViewModel: ViewModel() {
     private val _searchResults = MutableLiveData<FoodRecipe?>(null)
     val searchResults: LiveData<FoodRecipe?> = _searchResults
 
-    fun loadRecipeSearchResults(apiKey: String) {
+    fun loadRecipeSearchResults(recipeID: String, apiKey: String) {
         viewModelScope.launch {
-            val result = searchs.loadRepositoriesSearchRecipe(apiKey)
+            val result = searchs.loadRepositoriesSearchRecipe(recipeID, apiKey)
             _searchResults.value = result.getOrNull()
+            Log.d("RecipeSearchViewModel", "Search Results:\n${result}")
+
         }
     }
 

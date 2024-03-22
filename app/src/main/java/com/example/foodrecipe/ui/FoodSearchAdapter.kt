@@ -20,6 +20,17 @@ import java.net.URL
 class FoodSearchAdapter : RecyclerView.Adapter<FoodSearchAdapter.ViewHolder>() {
     private var meals: List<Meal> = listOf()
 
+    private lateinit var cardListener : onItemClickListener
+
+    interface onItemClickListener{
+        fun onItemClick(position: Int, activeMeal: Meal)
+    }
+
+    fun setOnItemClickListener(listener: onItemClickListener) {
+        //Sets local listener to the one passed in
+        cardListener = listener
+    }
+
     fun updateMealList(newRepoList: List<Meal>?) {
         notifyItemRangeRemoved(0, meals.size)
         meals = newRepoList ?: listOf()
@@ -31,7 +42,7 @@ class FoodSearchAdapter : RecyclerView.Adapter<FoodSearchAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.food_search_list, parent, false)
-        return ViewHolder(view)
+        return ViewHolder(view, cardListener)
     }
 
 
@@ -48,13 +59,21 @@ class FoodSearchAdapter : RecyclerView.Adapter<FoodSearchAdapter.ViewHolder>() {
         }
     }
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class ViewHolder(view: View, listener: onItemClickListener) : RecyclerView.ViewHolder(view) {
         private val titleTV: TextView = view.findViewById(R.id.tv_title)
         private val imgIV: ImageView = view.findViewById(R.id.iv_image)
+        private lateinit var activeMeal: Meal
+
+        init {
+            itemView.setOnClickListener {
+                listener.onItemClick(bindingAdapterPosition, activeMeal)
+            }
+        }
 
         fun bind(meal: Meal) {
             titleTV.text = meal.title
             loadImageFromInternet(meal.image)
+            activeMeal = meal
         }
 
         private fun loadImageFromInternet(imageUrl: String) {
