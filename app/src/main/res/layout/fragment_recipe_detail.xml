@@ -29,7 +29,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:contentDescription="@string/recipe_image_description"
-                    android:scaleType="fitXY" />
+                    android:scaleType="fitCenter" />
 
                 <TextView
                     android:id="@+id/tv_recipe_name"
