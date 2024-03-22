@@ -3,8 +3,14 @@
     <string name="action_bookmark">Bookmark</string>
 
     <string name="label_food_search">Recipe Search</string>
+<<<<<<< Updated upstream
     <string name="label_calorie_analysis">Calorie Counter</string>
+=======
+    <string name="label_favorite_recipe">Favorite Recipes</string>
+    <string name="label_specific_recipe">Opened Recipe</string>
+>>>>>>> Stashed changes
 
+    <string name="recipe_image_description">Image of the completed recipe</string>
 
     <!-- Below are strings related to preferences/settings -->
     <string name="pref_category_search">Search settings</string>

@@ -1,58 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    android:id="@+id/recipe_detail_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/recipe_detail"
-    android:orientation="vertical">
-    <ImageView
-        android:id="@+id/iv_recipe_image"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:scaleType="fitXY"
-        android:contentDescription="DESC of IMG"/>
-    <TextView
-        android:id="@+id/tv_recipe_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="Recipe Name show here"
-        android:textSize="24sp"
-        android:textStyle="bold"/>
-    <TextView
-        android:id="@+id/tv_recipe_description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="Details of Recipe show here"
-        android:textSize="18sp"/>
-    <TextView
-        android:id="@+id/tv_recipe_original"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="2oz 1 tbsp ...."
-        android:textSize="18sp"/>
-    <TextView
-        android:id="@+id/tv_recipe_consistency"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="solid or liquid ...."
-        android:textSize="18sp"/>
-    <TextView
-        android:id="@+id/tv_recipe_aisle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="baking ..."
-        android:textSize="18sp"/>
+        android:layout_height="wrap_content">
 
+        <LinearLayout
 
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/recipe_detail"
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/iv_recipe_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:scaleType="fitXY"
+                android:contentDescription="@string/recipe_image_description"/>
+            <TextView
+                android:id="@+id/tv_recipe_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textSize="24sp"
+                android:textStyle="bold"/>
+            <WebView
+                android:id="@+id/tv_recipe_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textSize="18sp"/>
+            <WebView
+                android:id="@+id/tv_instructions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textSize="18sp"/>
+            <TextView
+                android:id="@+id/tv_recipe_original"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textSize="18sp"/>
+            <TextView
+                android:id="@+id/tv_recipe_consistency"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textSize="18sp"/>
+            <TextView
+                android:id="@+id/tv_recipe_aisle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textSize="18sp"/>
+        </LinearLayout>
 
+    </FrameLayout>
 
-
-
-
-</LinearLayout>
+</ScrollView>

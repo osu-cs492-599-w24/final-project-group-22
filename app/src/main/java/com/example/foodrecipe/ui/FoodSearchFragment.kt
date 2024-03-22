@@ -33,6 +33,27 @@ class FoodSearchFragment : Fragment(R.layout.fragment_recipe_search) {
 
         forecastListRV.adapter = adapter
 
+<<<<<<< Updated upstream
+=======
+        adapter.setOnItemClickListener(object: FoodSearchAdapter.onItemClickListener{
+            override fun onItemClick(position: Int, activeMeal: Meal) {
+
+
+                Log.d("FoodSearchFragment", "Clicked on item $position, contains meal:\nID: ${activeMeal.id}\nName: ${activeMeal.title}")
+
+                val bundle = Bundle()
+                bundle.putParcelable("selectedMeal", activeMeal)
+
+                findNavController().navigate(
+                    R.id.specific_recipe_view,
+                    bundle
+                )
+
+            }
+
+        })
+
+>>>>>>> Stashed changes
         viewModel.searchResults.observe(viewLifecycleOwner) {
                 searchResults -> adapter.updateMealList(searchResults)
         }

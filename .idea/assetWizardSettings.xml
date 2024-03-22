@@ -24,19 +24,21 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="/private/var/folders/13/blwg5pcj3bx0s7qc8n535tjm0000gn/T/baseline_bookmark_24.xml" />
+                                                <entry key="imagePath" value="\" />
                                                 <entry key="opacityPercent" value="60" />
                                               </map>
                                             </option>
                                           </PersistentState>
                                         </value>
                                       </entry>
-                                      <entry key="clipartAsset">
+                                      <entry key="image">
                                         <value>
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="url" value="file:$USER_HOME$/Library/Android/sdk/icons/material/materialicons/bookmark/baseline_bookmark_24.xml" />
+                                                <entry key="color" value="000000" />
+                                                <entry key="imagePath" value="C:\Users\steve\Downloads\mealicon.png" />
+                                                <entry key="opacityPercent" value="60" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -68,6 +70,8 @@
                                   </option>
                                   <option name="values">
                                     <map>
+                                      <entry key="assetType" value="IMAGE" />
+                                      <entry key="imageAsset" value="C:\Users\steve\Downloads\mealicon.png" />
                                       <entry key="outputName" value="ic_action_bookmard" />
                                     </map>
                                   </option>
@@ -84,7 +88,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="imagePath" value="/private/var/folders/13/blwg5pcj3bx0s7qc8n535tjm0000gn/T/ic_android_black_24dp.xml" />
+                                                <entry key="imagePath" value="C:\Users\steve\AppData\Local\Temp\ic_android_black_24dp.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -139,7 +143,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="/private/var/folders/13/blwg5pcj3bx0s7qc8n535tjm0000gn/T/ic_android_black_24dp.xml" />
+                                                <entry key="imagePath" value="C:\Users\steve\AppData\Local\Temp\ic_android_black_24dp.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -183,7 +187,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="/private/var/folders/13/blwg5pcj3bx0s7qc8n535tjm0000gn/T/ic_android_black_24dp.xml" />
+                                                <entry key="imagePath" value="C:\Users\steve\AppData\Local\Temp\ic_android_black_24dp.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -247,7 +251,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="imagePath" value="/private/var/folders/13/blwg5pcj3bx0s7qc8n535tjm0000gn/T/ic_android_black_24dp.xml" />
+                                                <entry key="imagePath" value="C:\Users\steve\AppData\Local\Temp\ic_android_black_24dp.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>
