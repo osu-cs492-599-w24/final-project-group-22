@@ -61,9 +61,6 @@ class FoodSearchFragment : Fragment(R.layout.fragment_recipe_search) {
         }
         forecastListRV.visibility = View.VISIBLE
 
-//        viewModel.loadSearchResults("pasta", "7eeb9dec6924484dbd18320c7316ee6c")
-
-
         // Setting long click listener to add item to database
         adapter.onItemLongClick = {
             recipeViewModel.addSavedRecipe(
@@ -80,7 +77,7 @@ class FoodSearchFragment : Fragment(R.layout.fragment_recipe_search) {
         searchBtn.setOnClickListener {
             val query = searchBoxET.text.toString()
             if (!TextUtils.isEmpty(query)) {
-                viewModel.loadSearchResults(query, "e41f5f1e8cb74aa781657879e31d8ea6")
+                viewModel.loadSearchResults(query, getString(R.string.spoon_api_key))
                 forecastListRV.scrollToPosition(0)
             }
         }
