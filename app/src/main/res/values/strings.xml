@@ -51,4 +51,6 @@
     <string name="spoon_api_key">dd1e3bda18694b55a5fdcba6e90d094b</string>
     <string name="ingredient_list_label">Ingredients:</string>
     <string name="recipe_instructions_label">Instructions:</string>
+    <string name="recipe_viewer_label">Recipe Viewer</string>
+    <string name="calorie_counter_label">Calorie Counter</string>
 </resources>
