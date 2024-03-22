@@ -15,6 +15,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.foodrecipe.data.FoodRecipe
 import com.example.foodrecipe.data.Meal
+import com.google.android.material.snackbar.Snackbar
 
 class RecipeSearchFragment : Fragment(R.layout.fragment_recipe_detail) {
     private val viewModel: FoodSearchViewModel by viewModels()
@@ -55,6 +56,19 @@ class RecipeSearchFragment : Fragment(R.layout.fragment_recipe_detail) {
                 searchResults -> adapter.updateMealList(searchResults)
         }
         foodSearchRV.visibility = View.VISIBLE
+
+
+        // Set up on long click listener
+        // Video: Setting up a click listener for recycler view
+        // https://www.youtube.com/watch?v=WqrpcWXBz14
+        adapter.onItemLongClick = {
+            val snackbar = Snackbar.make(
+                view,
+                it.title,
+                Snackbar.LENGTH_LONG
+            )
+            snackbar.show()
+        }
 
         searchBtn.setOnClickListener {
             val query = searchBoxET.text.toString()

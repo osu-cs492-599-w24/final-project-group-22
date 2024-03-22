@@ -32,7 +32,24 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="food_search3">
+                  <entry key="navigate_to_recipe_detail">
+                    <value>
+                      <LayoutPositions />
+                    </value>
+                  </entry>
+                  <entry key="recipe_detail_fragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="12" />
+                            <option name="y" value="12" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="saved_recipes">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">

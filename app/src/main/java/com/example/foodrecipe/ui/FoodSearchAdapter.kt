@@ -45,8 +45,18 @@ class FoodSearchAdapter : RecyclerView.Adapter<FoodSearchAdapter.ViewHolder>() {
         return ViewHolder(view, cardListener)
     }
 
+
+    // On long click listener sources
+    // Video: Setting up a click listener for recycler view
+    // https://www.youtube.com/watch?v=WqrpcWXBz14
+    var onItemLongClick : ((Meal) -> Unit)? = null
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(meals[position])
+
+        holder.itemView.setOnLongClickListener {
+            onItemLongClick?.invoke(meals[position])
+            true
+        }
     }
 
     class ViewHolder(view: View, listener: onItemClickListener) : RecyclerView.ViewHolder(view) {
