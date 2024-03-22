@@ -12,10 +12,10 @@
     <item
         android:id="@+id/specific_recipe_view"
         android:title="@string/label_specific_recipe"
-        android:icon="@drawable/ic_action_bookmard"/>
+        android:icon="@drawable/ic_saved_recipe_icon"/>
     <item
         android:id="@+id/calorie_analysis"
         android:title="@string/label_calorie_analysis"
-        android:icon="@drawable/ic_starred"/>
+        android:icon="@drawable/ic_calorie_counter"/>
 
 </menu>

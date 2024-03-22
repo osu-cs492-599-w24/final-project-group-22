@@ -24,7 +24,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="\" />
+                                                <entry key="imagePath" value="C:\Users\steve\AppData\Local\Temp\ic_android_black_24dp.xml" />
                                                 <entry key="opacityPercent" value="60" />
                                               </map>
                                             </option>
@@ -37,7 +37,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="C:\Users\steve\Downloads\mealicon.png" />
+                                                <entry key="imagePath" value="C:\Users\steve\Downloads\caloriecountericon.png" />
                                                 <entry key="opacityPercent" value="60" />
                                               </map>
                                             </option>
@@ -71,8 +71,8 @@
                                   <option name="values">
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
-                                      <entry key="imageAsset" value="C:\Users\steve\Downloads\mealicon.png" />
-                                      <entry key="outputName" value="ic_action_bookmard" />
+                                      <entry key="imageAsset" value="C:\Users\steve\Downloads\caloriecountericon.png" />
+                                      <entry key="outputName" value="ic_calorie_counter" />
                                     </map>
                                   </option>
                                 </PersistentState>
