@@ -51,7 +51,7 @@ class FoodViewFragment : Fragment(R.layout.fragment_recipe_detail) {
         recipeDescription = view.findViewById(R.id.tv_recipe_description)
         recipeInstructions = view.findViewById(R.id.tv_instructions)
 
-        viewModel.loadRecipeSearchResults(recipeID.toString(), "e41f5f1e8cb74aa781657879e31d8ea6")
+        viewModel.loadRecipeSearchResults(recipeID.toString(), getString(R.string.spoon_api_key))
 
         viewModel.searchResults.observe(viewLifecycleOwner) {
             //Upon receiving the data from the API, loads it into the page
