@@ -13,6 +13,7 @@ import com.example.foodrecipe.R
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.foodrecipe.data.FoodRecipe
 import com.example.foodrecipe.data.Meal
 import com.example.foodrecipe.data.RecipesEntity
@@ -33,7 +34,7 @@ class FoodSearchFragment : Fragment(R.layout.fragment_recipe_search) {
         val searchBoxET: EditText = view.findViewById(R.id.et_search_box)
         forecastListRV = view.findViewById<RecyclerView>(R.id.rv_search_results)
 
-        forecastListRV.layoutManager = LinearLayoutManager(requireContext())
+        forecastListRV.layoutManager = GridLayoutManager(requireContext(), 2)
         forecastListRV.setHasFixedSize(true)
 
         forecastListRV.adapter = adapter
