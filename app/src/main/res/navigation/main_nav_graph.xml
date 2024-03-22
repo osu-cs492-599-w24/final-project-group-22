@@ -16,11 +16,11 @@
     <fragment
         android:id="@+id/favorite_recipes"
         android:name="com.example.foodrecipe.ui.FoodSearchFragment"
-        android:label="Recipe lists"/>
+        android:label="Recipe List"/>
     <fragment
         android:id="@+id/specific_recipe_view"
         android:name="com.example.foodrecipe.ui.FoodViewFragment"
-        android:label="Specific Food View" />
+        android:label="Recipe Viewer" />
     <fragment
         android:id="@+id/saved_recipes"
         android:name="com.example.foodrecipe.ui.SavedRecipesFragment"
@@ -28,5 +28,5 @@
     <fragment
         android:id="@+id/calorie_analysis"
         android:name="com.example.foodrecipe.ui.CalorieFragment"
-        android:label="Favorite" />
+        android:label="Calorie Counter" />
 </navigation>
