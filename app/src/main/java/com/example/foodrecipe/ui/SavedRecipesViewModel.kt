@@ -10,6 +10,7 @@ import com.example.foodrecipe.data.AppDatabase
 import com.example.foodrecipe.data.Meal
 import com.example.foodrecipe.data.RecipesEntity
 import com.example.foodrecipe.data.SavedRecipesRepository
+import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.launch
 
 class SavedRecipesViewModel(application: Application) : AndroidViewModel(application) {
@@ -31,6 +32,25 @@ class SavedRecipesViewModel(application: Application) : AndroidViewModel(applica
         viewModelScope.launch {
             repository.deleteRecipe(recipesEntity)
         }
+    }
+
+    fun addOrRemoveSavedRecipe(
+        recipesEntity: RecipesEntity,
+        lifecycleOwner: LifecycleOwner,
+        callback: (Boolean) -> Unit
+    ) {
+        queryRecipeById(recipesEntity.id).observe(lifecycleOwner) {
+            recipe ->
+                if (recipe == null) {
+                    addSavedRecipe(recipesEntity)
+                    callback(true)
+                }
+                else {
+                    removeSavedRecipe(recipesEntity)
+                    callback(false)
+                }
+        }
+
     }
 
 

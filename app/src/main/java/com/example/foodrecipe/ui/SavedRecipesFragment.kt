@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.foodrecipe.data.Meal
 import com.example.foodrecipe.data.RecipesEntity
+import com.google.android.material.snackbar.Snackbar
 
 class SavedRecipesFragment : Fragment(R.layout.fragment_recipe_saved) {
     private val recipeViewModel: SavedRecipesViewModel by viewModels()
@@ -26,6 +27,17 @@ class SavedRecipesFragment : Fragment(R.layout.fragment_recipe_saved) {
 
         forecastListRV.adapter = adapter
 
+        // Setting long click listener to remove item from database
+        adapter.onItemLongClick = {
+            recipeViewModel.removeSavedRecipe(
+                RecipesEntity(it.id, it.title, it.image)
+            )
+            Snackbar.make(
+                view,
+                it.title + " removed to saved.",
+                Snackbar.LENGTH_LONG
+            ).show()
+        }
 
         // Displays livedata from databse
 
@@ -44,7 +56,7 @@ class SavedRecipesFragment : Fragment(R.layout.fragment_recipe_saved) {
 //        val testRecipe1 = RecipesEntity(1, "Borgor", "b.png")
 //        val testRecipe2 = RecipesEntity(2, "Donot", "circle.png")
 //        val testRecipe3 = RecipesEntity(3, "SandWitch", "sand.png")
-//        val testRecipe4 = RecipesEntity(4, "SurvivesTheCulling", "alive.png")
+//        val testRecipe4 = RecipesEntity(4, "SurvivesTheCulling", "https://spoonacular.com/recipeImages/654959-312x231.jpg")
 //
 //        recipeViewModel.addSavedRecipe(testRecipe1)
 //        recipeViewModel.addSavedRecipe(testRecipe2)
